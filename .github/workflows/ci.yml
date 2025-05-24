@@ -1,6 +1,7 @@
-name: Run Selenium Tests
+name: Run Selenium Tests on Windows
 
 on:
+  workflow_dispatch:
   push:
     branches: [ main ]
   pull_request:
@@ -8,7 +9,7 @@ on:
 
 jobs:
   run-tests:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
 
     steps:
     - name: Checkout code
@@ -19,23 +20,10 @@ jobs:
       with:
         node-version: 22
 
-    - name: Install Google Chrome
-      run: |
-        sudo apt update
-        sudo apt install -y google-chrome-stable
+    - name: Install dependencies
+      run: npm install
 
-    - name: Install ChromeDriver
-      run: |
-        sudo apt-get install -y chromium-chromedriver
-        sudo ln -sf /usr/lib/chromium-browser/chromedriver /usr/bin/chromedriver
-
-    - name: Link ChromeDriver safely
-      run: |
-        if [ ! -e /usr/bin/chromedriver ]; then
-          sudo ln -s /usr/lib/chromium-browser/chromedriver /usr/bin/chromedriver
-        fi
-
-    - name: Run Tests
+    - name: Run Selenium Tests
       run: node tests/loginTests.js
 
     - name: Upload HTML Test Report
