@@ -29,6 +29,12 @@ jobs:
         sudo apt-get install -y chromium-chromedriver
         sudo ln -sf /usr/lib/chromium-browser/chromedriver /usr/bin/chromedriver
 
+    - name: Link ChromeDriver safely
+      run: |
+        if [ ! -e /usr/bin/chromedriver ]; then
+          sudo ln -s /usr/lib/chromium-browser/chromedriver /usr/bin/chromedriver
+        fi
+
     - name: Run Tests
       run: node tests/loginTests.js
 
