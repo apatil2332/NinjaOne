@@ -10,7 +10,7 @@ This project automates the login page test cases for [NinjaRMM](https://app.ninj
 ```
 ninjarmm-login-tests/
 ├── package.json
-├── test_report.html          # Generated HTML test report
+├── reports/test_report.html          # Generated HTML test report
 ├── README.md                 # This documentation
 ├── /tests/
 │   └── login.test.js         # Main test file (entry point)
@@ -62,15 +62,13 @@ npm install selenium-webdriver chromedriver
 1. **Clone the Repository**
 
 ```bash
-git clone https://github.com/your-username/ninjarmm-login-tests.git
-cd ninjarmm-login-tests
+git clone https://github.com/apatil2332/NinjaOne.git
+cd ninjaOne
 ```
 
 2. **Install Dependencies**
 
-```bash
-npm install selenium-webdriver
-```
+## you dont need to  to installl any dependencies manually because I have already added all node modules in the git
 
 3. **Directory Setup**
 
@@ -81,13 +79,13 @@ Ensure the following folders and files exist:
 - `/utils/helpers.js`
 
 
-
-
-##  How to Run Tests
-
+4. *Run this command**
 ```bash
 node tests/loginTests.js
 ```
+## Also you can check the sucessfull generated Artifact in Github Action workflow after every push It will run the script automatically
+
+
 
 It will:
 
@@ -95,8 +93,6 @@ It will:
 - Run all login test cases
 - Print pass/fail in terminal
 - Generate a `test_report.html` file in the root directory
-
----
 
 
 
