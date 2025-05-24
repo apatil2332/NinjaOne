@@ -79,9 +79,7 @@ async function runTests() {
     try {
       await loginPage.clickKeepMeSignedIn();
       await loginPage.login(VALID_EMAIL, VALID_PASSWORD);
-     // addResult(testName1, true);
     } catch (e) {
-     // addResult(testName1, false, e.message);
     }
 
     // Test 8: Valid login (simulate success case - depends on actual site behavior)
@@ -94,9 +92,8 @@ async function runTests() {
     try {
       await loginPage.clickKeepMeSignedIn();
       await loginPage.login(VALID_EMAIL, VALID_PASSWORD);
-     // addResult(testName1, true);
     } catch (e) {
-     // addResult(testName1, false, e.message);
+
     }
 
     // Test 9: Valid login using Enter key
@@ -162,7 +159,7 @@ async function runTests() {
 </html>
 `;
     fs.writeFileSync('reports/test_report.html', html);
-    console.log('\n📄 Report saved to reports/test_report.html');
+    console.log('\n Report saved to reports/test_report.html');
 
     await driver.quit();
   }
