@@ -33,7 +33,7 @@ jobs:
       run: node tests/loginTests.js
 
     - name: Upload HTML Test Report
-      if: always()
+      if: success()
       uses: actions/upload-artifact@v4
       with:
         name: html-test-report
