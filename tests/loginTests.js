@@ -82,7 +82,7 @@ async function runTests() {
     } catch (e) {
     }
 
-    // Test 8: Valid login (simulate success case - depends on actual site behavior)
+    // Test 8: Valid login
     await runLoginErrorTest('Test 8: Valid login credentials', VALID_EMAIL, VALID_PASSWORD, false); 
 
 
