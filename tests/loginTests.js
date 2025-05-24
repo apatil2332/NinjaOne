@@ -83,26 +83,24 @@ async function runTests() {
     }
 
     // Test 8: Valid login
-    await runLoginErrorTest('Test 8: Valid login credentials', VALID_EMAIL, VALID_PASSWORD, false); 
-
-
-    await driver.navigate().refresh();
-    await driver.sleep(2000);
+// Test 8: Valid login credentials
+    const testName8 = 'Test 8: Valid login credentials with MFA check';
     await loginPage.open();
     try {
-      await loginPage.clickKeepMeSignedIn();
       await loginPage.login(VALID_EMAIL, VALID_PASSWORD);
+      const mfaVisible = await loginPage.isMfaHeaderVisible();
+      addResult(testName8, mfaVisible, mfaVisible ? '' : 'Multi-Factor Authentication header not found.');
     } catch (e) {
-
-    }
+      addResult(testName8, false, e.message);
+}
 
     // Test 9: Valid login using Enter key
     await loginPage.open();
-    const testName9 = 'Test 9: Valid login using Enter key';
+    const testName9 = 'Test 9: Valid login using Enter key with MFA check';
     try {
-      await loginPage.login(VALID_EMAIL, VALID_PASSWORD, false);
-      const errorVisible = await loginPage.isErrorMessageVisible();
-      addResult(testName9, !errorVisible, `Expected error: No | Found: ${errorVisible ? 'Yes' : 'No'}`);
+      await loginPage.login(VALID_EMAIL, VALID_PASSWORD, true);
+      const mfaVisible = await loginPage.isMfaHeaderVisible();
+      addResult(testName9, mfaVisible, mfaVisible ? '' : 'Multi-Factor Authentication header not found.');
     } catch (e) {
       addResult(testName9, false, e.message);
     }

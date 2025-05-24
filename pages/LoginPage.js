@@ -13,7 +13,12 @@ class LoginPage {
       forgotPasswordLink: By.css('a[href="#/resetPassword"]'),
       registerLink: By.css('a[href="#/register"]'),
       errorMessage: By.css('div.alert.alert-danger'),
+      mfaHeader: By.css('h2.css-1hie37q.eo7gr5w0'),
     };
+  }
+
+  async isMfaHeaderVisible() {
+  return this.isElementPresent(this.selectors.mfaHeader);
   }
 
   async open() {
