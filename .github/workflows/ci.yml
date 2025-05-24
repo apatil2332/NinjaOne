@@ -1,22 +1,35 @@
 name: Run Selenium Tests
 
-on: [push, pull_request]
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
 
 jobs:
-  test:
+  run-tests:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+    - name: Checkout code
+      uses: actions/checkout@v3
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: 18
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: 22
 
-      - name: Install dependencies
-        run: npm ci
+    - name: Install Google Chrome
+      run: |
+        sudo apt update
+        sudo apt install -y google-chrome-stable || sudo apt install -y chromium-browser
 
-      - name: Run Selenium tests
-        run: npm test
+    - name: Run Tests
+      run: node tests/loginTests.js
+
+    - name: Upload HTML Test Report
+      if: always()
+      uses: actions/upload-artifact@v4
+      with:
+        name: html-test-report
+        path: reports/test_report.html
