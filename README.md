@@ -75,11 +75,15 @@ cd ninjaOne
 Ensure the following folders and files exist:
 
 - `/pages/LoginPage.js`
-- `/tests/login.test.js`
+- `/tests/loginTests.js`
 - `/utils/helpers.js`
 
+4.  In the loginTests.js file update your registers and activated "Email id " and "Password" 
 
-4. *Run this command**
+
+
+
+5. *Run this command**
 ```bash
 node tests/loginTests.js
 ```
