@@ -68,7 +68,7 @@ cd ninjaOne
 
 2. **Install Dependencies**
 
-## you dont need to  to installl any dependencies manually because I have already added all node modules in the git repo.
+## you dont need to  to installl any dependencies manually because I have already added all node modules in the git repository.
 
 3. **Directory Setup**
 
