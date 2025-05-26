@@ -10,7 +10,7 @@ This project automates the login page test cases for [NinjaRMM](https://app.ninj
 ```
 ninjarmm-login-tests/
 ├── package.json
-├── reports/test_report.html          # Generated HTML test report
+├── reports/test_report.html  # Generated HTML test report
 ├── README.md                 # This documentation
 ├── /tests/
 │   └── login.test.js         # Main test file (entry point)
@@ -97,7 +97,6 @@ It will:
 - Run all login test cases
 - Print pass/fail in terminal
 - Generate a `test_report.html` file in the root directory
-
 
 
 After running the tests, open `test_report.html` in your browser.
